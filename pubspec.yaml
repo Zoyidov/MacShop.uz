@@ -1,0 +1,103 @@
+name: login_screen_homework
+description: A new Flutter project.
+
+publish_to: 'none'
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.2 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^2.0.6
+  flutter_screenutil: ^5.8.4
+  http: ^1.1.0
+  lottie: ^2.4.0
+  modal_bottom_sheet: ^2.1.2
+  zoom_tap_animation: ^1.1.0
+  flutter_carousel_slider: ^1.1.0
+
+  shimmer: ^3.0.0
+  shared_preferences: ^2.0.0
+  change_app_package_name: ^1.1.0
+  firebase_core: ^2.15.0
+  cloud_firestore: ^4.8.3
+  firebase_auth: ^4.7.1
+  firebase_storage: ^11.2.5
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^2.0.0
+
+
+
+flutter:
+
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+#    - assets/svg/
+#    - assets/translations/
+
+
+
+
+#  fonts:
+#
+#    - family: IsonormD
+#      fonts:
+#        - asset: assets/fonts/IsonormD.ttf
+#          style: italic
+#
+#
+#    - family: inc
+#      fonts:
+#        - asset: assets/fonts/inc.ttf
+#
+#
+#
+#    - family: incLt
+#      fonts:
+#        - asset: assets/fonts/incLt.ttf
+#
+#
+#    - family: InriaSerif
+#      fonts:
+#        - asset: assets/fonts/InriaSerif-Bold.otf
+#        - asset: assets/fonts/InriaSerif-BoldItalic.otf
+#        - asset: assets/fonts/InriaSerif-Italic.otf
+#        - asset: assets/fonts/InriaSerif-Light.otf
+#        - asset: assets/fonts/InriaSerif-LightItalic.otf
+#        - asset: assets/fonts/InriaSerif-Regular.otf
+#
+#
+#
+#    - family: bitstream
+#      fonts:
+#        - asset: assets/fonts/bitstream-iowan-old-style-black-bt-586c36e930225.ttf
+#        - asset: assets/fonts/bitstream-iowan-old-style-black-italic-bt-586c378f12ca1.ttf
+#        - asset: assets/fonts/bitstream-iowan-old-style-bold-bt-586c371d8d669.ttf
+#        - asset: assets/fonts/bitstream-iowan-old-style-bold-italic-bt-586c37701cb62.ttf
+#        - asset: assets/fonts/bitstream-iowan-old-style-bt-586c36a8d7712.ttf
+#        - asset: assets/fonts/bitstream-iowan-old-style-italic-bt-586c3740dc396.ttf
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "447602571368",
+    "project_id": "texno-bozor-5c397",
+    "storage_bucket": "texno-bozor-5c397.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447602571368:android:b7609ecaed509b120023dd",
+        "android_client_info": {
+          "package_name": "uz.texno.bozor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447602571368-151jt4ao9kit2q5790s5hfb9llk5dqgm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAAo5oduVrh3K61cLuuCumsCrsDt4xSVE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447602571368-151jt4ao9kit2q5790s5hfb9llk5dqgm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
