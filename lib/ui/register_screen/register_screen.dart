@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:login_screen_homework/widgets/circle.dart';
-import 'package:login_screen_homework/widgets/global_button.dart';
+import 'package:login_screen_homework/utils/colors.dart';
+import '../widgets/circle.dart';
+import '../widgets/global_button.dart';
 import '../widgets/global_textfield.dart';
+
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
@@ -14,9 +15,9 @@ class RegisterPage extends StatelessWidget {
       body: Stack(
         children: [
           Positioned(
-              top: -30, right: -15, child: Circles(color: Colors.deepPurple)),
+              top: -30, right: -13, child: Circles(color: AppColors.purple)),
           Positioned(
-              top: 530, left: -40, child: Circles(color: Colors.deepPurple)),
+              top: 530, left: -40, child: Circles(color: AppColors.purple)),
           SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
@@ -33,7 +34,7 @@ class RegisterPage extends StatelessWidget {
                       caption: ''),
                   SizedBox(height: 20),
                   GlobalTextField(
-                      hintText: 'Email Adress',
+                      hintText: 'Email Address',
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
                       prefixIcon: Icons.email,
@@ -60,7 +61,7 @@ class RegisterPage extends StatelessWidget {
                       prefixIcon: Icons.call,
                       caption: ''),
                   SizedBox(height: 120),
-                  GlobalButton(color: Colors.deepPurple, text: 'Confirm'),
+                  GlobalButton(color: AppColors.purple, text: 'Confirm'),
                   SizedBox(height: 50),
                 ],
               ),

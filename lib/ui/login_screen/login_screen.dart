@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:login_screen_homework/register_screen/register_screen.dart';
-import 'package:login_screen_homework/widgets/circle.dart';
-import 'package:login_screen_homework/widgets/global_button.dart';
+import 'package:login_screen_homework/utils/colors.dart';
+import 'package:login_screen_homework/utils/images.dart';
+import '../widgets/circle.dart';
+import '../widgets/global_button.dart';
+import '../widgets/global_textfield.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
-import '../widgets/global_textfield.dart';
+import '../register_screen/register_screen.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -16,25 +18,26 @@ class LoginPage extends StatelessWidget {
       body: Stack(
         children: [
           Positioned(
-              top: -30, right: -15, child: Circles(color: Colors.deepPurple)),
+              top: -30, right: -13, child: Circles(color: AppColors.purple)),
           Positioned(
-              top: 500, left: -40, child: Circles(color: Colors.deepPurple)),
+              top: 500, left: -40, child: Circles(color: AppColors.purple)),
           SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
-                  SizedBox(height: 100),
-                  Lottie.asset('assets/images/account.json', height: 300),
+                  SizedBox(height: 80),
+                  Text('TEXNO  BAZAR',style: TextStyle(fontSize: 30,fontWeight: FontWeight.w900,color: AppColors.purple)),
+                  Lottie.asset(AppImages.account, height: 300),
                   GlobalTextField(
-                      hintText: 'Name',
+                      hintText: 'Email Address',
                       keyboardType: TextInputType.name,
                       textInputAction: TextInputAction.next,
-                      prefixIcon: CupertinoIcons.person_alt,
+                      prefixIcon: Icons.email,
                       caption: ''),
                   SizedBox(height: 20),
                   GlobalTextField(
-                      hintText: 'Name',
+                      hintText: 'Password',
                       keyboardType: TextInputType.visiblePassword,
                       textInputAction: TextInputAction.done,
                       prefixIcon: Icons.key,
@@ -45,31 +48,32 @@ class LoginPage extends StatelessWidget {
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Colors.grey)),
-                  SizedBox(height: 100),
-                  GlobalButton(color: Colors.deepPurple, text: 'Login'),
+                  SizedBox(height: 70),
+                  GlobalButton(color: AppColors.purple, text: 'Login'),
                   SizedBox(height: 30),
-                  ZoomTapAnimation(
-                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> RegisterPage()));},
-                    child: RichText(
-                      text: TextSpan(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Don’t have an account? ',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                           color: Colors.grey,
                         ),
-                        children: [
-                          TextSpan(text: "Don’t have an account? "),
-                          TextSpan(
-                            text: 'CREATE',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
                       ),
-                    ),
+                      ZoomTapAnimation(
+                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> RegisterPage()));},
+                        child: Text(
+                          'CREATE',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.black,
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                   SizedBox(height: 30),
                 ],
@@ -78,7 +82,7 @@ class LoginPage extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
+import '../../utils/colors.dart';
+
 class GlobalButton extends StatelessWidget {
   const GlobalButton({super.key, required this.color, required this.text});
 
@@ -26,7 +28,7 @@ class GlobalButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-              fontSize: 25, fontWeight: FontWeight.w600, color: Colors.white),
+              fontSize: 25, fontWeight: FontWeight.w600, color: AppColors.white),
         ),
       ),
     );

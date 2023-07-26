@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../utils/colors.dart';
 
 class GlobalTextField extends StatefulWidget {
   final String hintText;
@@ -35,7 +36,7 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
               widget.caption,
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.black,
+                color: AppColors.black,
               ),
             ),
           ),
@@ -44,9 +45,10 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.5),
-                offset: Offset(0, 5),
-                blurRadius: 30,
+                color: Colors.grey.withOpacity(0.4),
+                spreadRadius: 0,
+                blurRadius: 20,
+                offset: Offset.zero,
               ),
             ],
           ),
@@ -55,7 +57,7 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
               hintText: widget.hintText,
               prefixIcon: Icon(
                 widget.prefixIcon,
-                color: Colors.black,
+                color: AppColors.black,
               ),
               suffixIcon: widget.keyboardType == TextInputType.visiblePassword
                   ? IconButton(
@@ -64,7 +66,7 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
                   _isPasswordVisible
                       ? Icons.visibility
                       : Icons.visibility_off,
-                  color: Colors.black,
+                  color: AppColors.black,
                 ),
                 onPressed: () {
                   setState(() {
@@ -74,11 +76,11 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
               )
                   : null,
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white, width: 1),
+                borderSide: BorderSide(color: AppColors.white, width: 1),
                 borderRadius: BorderRadius.circular(30),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.black, width: 1),
+                borderSide: BorderSide(color: AppColors.black, width: 1),
                 borderRadius: BorderRadius.circular(30),
               ),
               errorBorder: OutlineInputBorder(
@@ -86,11 +88,11 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
                 borderRadius: BorderRadius.circular(30),
               ),
               border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white, width: 1),
+                borderSide: BorderSide(color: AppColors.white, width: 1),
                 borderRadius: BorderRadius.circular(30),
               ),
               filled: true,
-              fillColor: Colors.white,
+              fillColor: AppColors.white,
             ),
             keyboardType: widget.keyboardType,
             textInputAction: widget.textInputAction,

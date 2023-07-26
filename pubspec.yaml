@@ -51,53 +51,19 @@ flutter:
 
   assets:
     - assets/images/
-#    - assets/svg/
-#    - assets/translations/
-
-
-
-
-#  fonts:
-#
-#    - family: IsonormD
-#      fonts:
-#        - asset: assets/fonts/IsonormD.ttf
-#          style: italic
-#
-#
-#    - family: inc
-#      fonts:
-#        - asset: assets/fonts/inc.ttf
-#
-#
-#
-#    - family: incLt
-#      fonts:
-#        - asset: assets/fonts/incLt.ttf
-#
-#
-#    - family: InriaSerif
-#      fonts:
-#        - asset: assets/fonts/InriaSerif-Bold.otf
-#        - asset: assets/fonts/InriaSerif-BoldItalic.otf
-#        - asset: assets/fonts/InriaSerif-Italic.otf
-#        - asset: assets/fonts/InriaSerif-Light.otf
-#        - asset: assets/fonts/InriaSerif-LightItalic.otf
-#        - asset: assets/fonts/InriaSerif-Regular.otf
-#
-#
-#
-#    - family: bitstream
-#      fonts:
-#        - asset: assets/fonts/bitstream-iowan-old-style-black-bt-586c36e930225.ttf
-#        - asset: assets/fonts/bitstream-iowan-old-style-black-italic-bt-586c378f12ca1.ttf
-#        - asset: assets/fonts/bitstream-iowan-old-style-bold-bt-586c371d8d669.ttf
-#        - asset: assets/fonts/bitstream-iowan-old-style-bold-italic-bt-586c37701cb62.ttf
-#        - asset: assets/fonts/bitstream-iowan-old-style-bt-586c36a8d7712.ttf
-#        - asset: assets/fonts/bitstream-iowan-old-style-italic-bt-586c3740dc396.ttf
+    - assets/svg/
 
 
 
 
 
-
+  fonts:
+    - family: Sora
+      fonts:
+        - asset: assets/fonts/Sora-Regular.ttf
+        - asset: assets/fonts/Sora-Light.ttf
+        - asset: assets/fonts/Sora-Medium.ttf
+        - asset: assets/fonts/Sora-SemiBold.ttf
+        - asset: assets/fonts/Sora-Bold.ttf
+        - asset: assets/fonts/Sora-ExtraBold.ttf
+          style: italic
