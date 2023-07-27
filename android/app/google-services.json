@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "447602571368",
-    "project_id": "texno-bozor-5c397",
-    "storage_bucket": "texno-bozor-5c397.appspot.com"
+    "project_number": "1024161690905",
+    "project_id": "macshop-c8073",
+    "storage_bucket": "macshop-c8073.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:447602571368:android:b7609ecaed509b120023dd",
+        "mobilesdk_app_id": "1:1024161690905:android:7f46bad689b28127314188",
         "android_client_info": {
-          "package_name": "uz.texno.bozor"
+          "package_name": "pro.apple.user"
         }
       },
       "oauth_client": [
         {
-          "client_id": "447602571368-151jt4ao9kit2q5790s5hfb9llk5dqgm.apps.googleusercontent.com",
+          "client_id": "1024161690905-3m3auoi58ggovtn3pp5510gcrec5if85.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCAAo5oduVrh3K61cLuuCumsCrsDt4xSVE"
+          "current_key": "AIzaSyC3D2SGWHuuhV4vehh4ohAl6clqRr-bQj0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "447602571368-151jt4ao9kit2q5790s5hfb9llk5dqgm.apps.googleusercontent.com",
+              "client_id": "1024161690905-3m3auoi58ggovtn3pp5510gcrec5if85.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

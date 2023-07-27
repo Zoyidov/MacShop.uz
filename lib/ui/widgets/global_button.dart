@@ -4,14 +4,16 @@ import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 import '../../utils/colors.dart';
 
 class GlobalButton extends StatelessWidget {
-  const GlobalButton({super.key, required this.color, required this.text});
+  const GlobalButton({super.key, required this.color, required this.text, required this.onTap});
 
   final Color color;
   final String text;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return ZoomTapAnimation(
+      onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
         decoration: BoxDecoration(

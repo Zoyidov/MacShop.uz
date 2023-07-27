@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:login_screen_homework/providers/auth_provider.dart';
+import 'package:login_screen_homework/ui/widgets/login_by.dart';
 import 'package:login_screen_homework/utils/colors.dart';
 import 'package:login_screen_homework/utils/images.dart';
+import 'package:provider/provider.dart';
 import '../widgets/circle.dart';
 import '../widgets/global_button.dart';
 import '../widgets/global_textfield.dart';
@@ -18,39 +22,48 @@ class LoginPage extends StatelessWidget {
       body: Stack(
         children: [
           Positioned(
-              top: -30, right: -13, child: Circles(color: AppColors.purple)),
+              top: -30, right: -13, child: Circles(color: AppColors.black)),
           Positioned(
-              top: 500, left: -40, child: Circles(color: AppColors.purple)),
+              top: 500, left: -40, child: Circles(color: AppColors.black)),
           SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
-                  SizedBox(height: 80),
-                  Text('TEXNO  BAZAR',style: TextStyle(fontSize: 30,fontWeight: FontWeight.w900,color: AppColors.purple)),
+                  SizedBox(height: 50),
+                  Text('MacShop',
+                      style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w900,
+                          color: AppColors.black)),
                   Lottie.asset(AppImages.account, height: 300),
                   GlobalTextField(
+                      controller: context.read<AuthProvider>().emailController,
                       hintText: 'Email Address',
-                      keyboardType: TextInputType.name,
+                      keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
                       prefixIcon: Icons.email,
                       caption: ''),
                   SizedBox(height: 20),
                   GlobalTextField(
+                      controller:
+                          context.read<AuthProvider>().passwordController,
                       hintText: 'Password',
                       keyboardType: TextInputType.visiblePassword,
                       textInputAction: TextInputAction.done,
                       prefixIcon: Icons.key,
                       caption: ''),
+                  SizedBox(height: 50),
+                  LoginBy(),
+                  SizedBox(height: 50),
+                  GlobalButton(
+                    color: AppColors.black,
+                    text: 'Login',
+                    onTap: () {
+                      context.read<AuthProvider>().logIn(context);
+                    },
+                  ),
                   SizedBox(height: 20),
-                  Text('Forgot your password ?',
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.grey)),
-                  SizedBox(height: 70),
-                  GlobalButton(color: AppColors.purple, text: 'Login'),
-                  SizedBox(height: 30),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -63,7 +76,13 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       ZoomTapAnimation(
-                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> RegisterPage()));},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RegisterPage()));
+                          context.read<AuthProvider>().loginButtonPressed();
+                        },
                         child: Text(
                           'CREATE',
                           style: TextStyle(
@@ -72,10 +91,9 @@ class LoginPage extends StatelessWidget {
                             color: AppColors.black,
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
-                  SizedBox(height: 30),
                 ],
               ),
             ),

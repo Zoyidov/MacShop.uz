@@ -8,13 +8,15 @@ class GlobalTextField extends StatefulWidget {
   final IconData prefixIcon;
   final String caption;
 
+  final TextEditingController controller;
+
   const GlobalTextField({
     Key? key,
     required this.hintText,
     required this.keyboardType,
     required this.textInputAction,
     required this.prefixIcon,
-    required this.caption,
+    required this.caption, required this.controller,
   }) : super(key: key);
 
   @override
@@ -53,6 +55,7 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
             ],
           ),
           child: TextField(
+            controller: widget.controller,
             decoration: InputDecoration(
               hintText: widget.hintText,
               prefixIcon: Icon(
