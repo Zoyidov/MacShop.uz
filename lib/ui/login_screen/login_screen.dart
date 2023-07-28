@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:login_screen_homework/providers/auth_provider.dart';
 import 'package:login_screen_homework/ui/widgets/login_by.dart';
 import 'package:login_screen_homework/utils/colors.dart';
