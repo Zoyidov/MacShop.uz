@@ -37,8 +37,7 @@ class AuthProvider with ChangeNotifier {
   Future<void> signUpUser(BuildContext context) async {
     String email = emailController.text;
     String password = passwordController.text;
-    String confirmPassword = confirmPasswordController.text;
-    String phoneNumber = confirmPasswordController.text;
+
     isLoading = true;
     notifyListeners();
     UniversalData universalData =

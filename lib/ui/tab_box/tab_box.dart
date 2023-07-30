@@ -18,7 +18,7 @@ class _TabBoxScreenState extends State<TabBoxScreen> {
   Widget build(BuildContext context) {
     var provider = Provider.of<TabBox>(context, listen: true);
     return Scaffold(
-      body:provider.widget,
+      body: provider.widget,
         bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.white,
         color: AppColors.black,

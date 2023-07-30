@@ -13,7 +13,7 @@ class TabBox with ChangeNotifier {
     getWidgets();
   }
 
-  int currentIndex = 2;
+  int currentIndex = 0;
   List<Widget> screens = [];
   Widget? widget;
 
