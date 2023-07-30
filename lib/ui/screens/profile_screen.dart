@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:login_screen_homework/ui/screens/widgets/log_out.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../utils/colors.dart';
 
@@ -21,7 +21,7 @@ class ProfileScreen extends StatelessWidget {
         title: Text('Profile', style: TextStyle(color: AppColors.white)),
         actions: [
           IconButton(
-            onPressed: () => _showLogoutDialog(context),
+            onPressed: () => showLogoutDialog(context),
             icon: Icon(
               Icons.logout,
               size: 30,
@@ -39,7 +39,8 @@ class ProfileScreen extends StatelessWidget {
               backgroundColor: Colors.black,
               radius: 70,
               child: ClipOval(
-                child: Image.network(user?.photoURL ??"",
+                child: Image.network(
+                  user?.photoURL ?? "",
                   fit: BoxFit.cover,
                   width: 130,
                   height: 130,
@@ -56,32 +57,6 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  void _showLogoutDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          backgroundColor: Colors.black,
-          title: const Text('Are you sure?',
-              style: TextStyle(color: Colors.white)),
-          actions: [
-            TextButton(
-              child: const Text('Cancel', style: TextStyle(color: Colors.white)),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-            TextButton(
-              child: const Text('Log out', style: TextStyle(color: Colors.red)),
-              onPressed: () {
-                context.read<AuthProvider>().logOut(context);
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   Widget _buildUserInfo(Icon icon, String value) {
     return Center(
       child: Row(
@@ -94,7 +69,6 @@ class ProfileScreen extends StatelessWidget {
               color: AppColors.black,
             ),
           ),
-
         ],
       ),
     );
