@@ -4,9 +4,10 @@ import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 import '../../utils/colors.dart';
 
 class GlobalButton extends StatelessWidget {
-  const GlobalButton({super.key, required this.color, required this.text, required this.onTap});
+  const GlobalButton({super.key, required this.color,required this.tcolor, required this.text, required this.onTap});
 
   final Color color;
+  final Color tcolor;
   final String text;
   final VoidCallback onTap;
 
@@ -30,7 +31,7 @@ class GlobalButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-              fontSize: 25, fontWeight: FontWeight.w600, color: AppColors.white),
+              fontSize: 20, fontWeight: FontWeight.w600, color: tcolor),
         ),
       ),
     );

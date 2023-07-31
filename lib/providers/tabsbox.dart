@@ -6,10 +6,8 @@ import '../ui/screens/home_screen.dart';
 import '../ui/screens/laptops_screen.dart';
 import '../ui/screens/profile_screen.dart';
 
-
 class TabBox with ChangeNotifier {
-
-  TabBox()  {
+  TabBox() {
     getWidgets();
   }
 
@@ -17,7 +15,7 @@ class TabBox with ChangeNotifier {
   List<Widget> screens = [];
   Widget? widget;
 
-  void getWidgets(){
+  void getWidgets() {
     screens.add(const LaptopsScreen());
     screens.add(const BasketScreen());
     screens.add(const HomeScreen());
@@ -28,10 +26,9 @@ class TabBox with ChangeNotifier {
     notifyListeners();
   }
 
-  getScreen(int index){
-    widget =  screens[index];
+  getScreen(int index) {
+    widget = screens[index];
     currentIndex = index;
     notifyListeners();
   }
-
 }

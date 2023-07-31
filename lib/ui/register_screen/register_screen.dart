@@ -71,7 +71,7 @@ class RegisterPage extends StatelessWidget {
                   SizedBox(height: 100),
                   GlobalButton(color: AppColors.black, text: 'Confirm', onTap: () {
                     context.read<AuthProvider>().signUpUser(context);
-                   }),
+                   }, tcolor: AppColors.white),
                   SizedBox(height: 50),
                 ],
               ),

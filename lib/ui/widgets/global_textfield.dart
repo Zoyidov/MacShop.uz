@@ -55,6 +55,7 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
             ],
           ),
           child: TextField(
+            cursorColor: AppColors.black,
             controller: widget.controller,
             decoration: InputDecoration(
               hintText: widget.hintText,

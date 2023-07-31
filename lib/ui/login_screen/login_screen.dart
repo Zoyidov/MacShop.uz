@@ -4,6 +4,7 @@ import 'package:login_screen_homework/providers/auth_provider.dart';
 import 'package:login_screen_homework/ui/widgets/login_by.dart';
 import 'package:login_screen_homework/utils/colors.dart';
 import 'package:login_screen_homework/utils/images.dart';
+import 'package:login_screen_homework/utils/ui_utils/loading_dialog.dart';
 import 'package:provider/provider.dart';
 import '../widgets/circle.dart';
 import '../widgets/global_button.dart';
@@ -60,7 +61,7 @@ class LoginPage extends StatelessWidget {
                     text: 'Login',
                     onTap: () {
                       context.read<AuthProvider>().logIn(context);
-                    },
+                    }, tcolor: AppColors.white
                   ),
                   SizedBox(height: 20),
                   Row(

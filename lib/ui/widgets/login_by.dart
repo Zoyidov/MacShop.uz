@@ -16,6 +16,10 @@ class LoginBy extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         ZoomTapAnimation(
+          onTap: (){
+            context.read<AuthProvider>().signInWithFacebook(context);
+
+          },
           child: Container(
             padding: EdgeInsets.all(10),
             height: 50,
@@ -43,6 +47,9 @@ class LoginBy extends StatelessWidget {
           ),
         ),
         ZoomTapAnimation(
+          onTap: (){
+            context.read<AuthProvider>().signInWithApple(context);
+          },
           child: Container(
             padding: EdgeInsets.all(10),
             height: 50,

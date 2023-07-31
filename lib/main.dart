@@ -7,6 +7,8 @@ import 'package:login_screen_homework/providers/tabsbox.dart';
 import 'package:login_screen_homework/ui/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
+import 'data/firebase/profile_service.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -18,7 +20,7 @@ void main() async {
           create: (context) => AuthProvider(fireBaseServices: FireBaseServices()),
         ),
         ChangeNotifierProvider<ProfileProvider>(
-          create: (context) => ProfileProvider(),
+          create: (context) => ProfileProvider(profileService: ProfileService()),
         ),
         ChangeNotifierProvider(
           create: (context) => TabBox(),
