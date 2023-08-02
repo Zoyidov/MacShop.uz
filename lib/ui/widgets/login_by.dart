@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:login_screen_homework/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 import '../../utils/colors.dart';
@@ -47,8 +48,14 @@ class LoginBy extends StatelessWidget {
           ),
         ),
         ZoomTapAnimation(
-          onTap: (){
-            context.read<AuthProvider>().signInWithApple(context);
+          onTap: () async {
+            final credential = await SignInWithApple.getAppleIDCredential(
+              scopes: [
+                AppleIDAuthorizationScopes.email,
+                AppleIDAuthorizationScopes.fullName,
+              ],
+            );
+            print(credential);
           },
           child: Container(
             padding: EdgeInsets.all(10),

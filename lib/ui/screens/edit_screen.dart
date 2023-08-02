@@ -1,13 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:login_screen_homework/ui/screens/widgets/log_out.dart';
-import 'package:login_screen_homework/ui/widgets/global_button.dart';
 import 'package:login_screen_homework/ui/widgets/global_textfield.dart';
 import 'package:provider/provider.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
-
-import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../utils/colors.dart';
 
@@ -20,17 +16,19 @@ class EditAccount extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         leading: ZoomTapAnimation(
           onTap: () {
             Navigator.pop(context);
           },
           child: Container(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+              padding: EdgeInsets.symmetric(horizontal: 5),
               child: Text(
                 'Cancel',
-                style: TextStyle(color: Colors.grey),
+                style: TextStyle(color: Colors.black,fontSize: 18),
               )),
         ),
+        leadingWidth: 100,
         actions: [
           ZoomTapAnimation(
             onTap: (){
@@ -39,14 +37,14 @@ class EditAccount extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Container(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Text(
                   'Done',
-                  style: TextStyle(color: Colors.grey),
+                  style: TextStyle(color: Colors.black,fontSize: 18),
                 )),
           ),
         ],
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
       ),
       body: Column(
         children: [
@@ -63,7 +61,7 @@ class EditAccount extends StatelessWidget {
                         height: 130,
                       )
                     : CircleAvatar(
-                        backgroundColor: Colors.grey,
+                        backgroundColor: Colors.black,
                         radius: 70,
                         child: Icon(
                           CupertinoIcons.person_alt,
@@ -77,40 +75,42 @@ class EditAccount extends StatelessWidget {
           SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Column(
-              children: [
-                GlobalTextField(
-                  hintText: '',
-                  keyboardType: TextInputType.text,
-                  textInputAction: TextInputAction.next,
-                  prefixIcon: Icons.email,
-                  caption: '',
-                  controller: context.read<ProfileProvider>().emailController,
-                ),
-                SizedBox(height: 20),
-                GlobalTextField(
-                  hintText: '',
-                  keyboardType: TextInputType.text,
-                  textInputAction: TextInputAction.next,
-                  prefixIcon: Icons.person,
-                  caption: '',
-                  controller: context.read<ProfileProvider>().nameController,
-                ),
-                SizedBox(height: 20),
-                GlobalTextField(
-                  hintText: '',
-                  keyboardType: TextInputType.text,
-                  textInputAction: TextInputAction.next,
-                  prefixIcon: Icons.phone,
-                  caption: '',
-                  controller: context.read<ProfileProvider>().phoneController,
-                ),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  GlobalTextField(
+                    hintText: user?.email ?? '',
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
+                    prefixIcon: Icons.email,
+                    caption: '',
+                    controller: context.read<ProfileProvider>().emailController,
+                  ),
+                  SizedBox(height: 20),
+                  GlobalTextField(
+                    hintText: user?.displayName ?? '',
+                    keyboardType: TextInputType.name,
+                    textInputAction: TextInputAction.next,
+                    prefixIcon: Icons.person,
+                    caption: '',
+                    controller: context.read<ProfileProvider>().nameController,
+                  ),
+                  SizedBox(height: 20),
+                  GlobalTextField(
+                    hintText: user?.phoneNumber ?? '',
+                    keyboardType: TextInputType.phone,
+                    textInputAction: TextInputAction.done,
+                    prefixIcon: Icons.phone,
+                    caption: '',
+                    controller: context.read<ProfileProvider>().phoneController,
+                  ),
+                ],
+              ),
             ),
           ),
         ],
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
     );
   }
 }

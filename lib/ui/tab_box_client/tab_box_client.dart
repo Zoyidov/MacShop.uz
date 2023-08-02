@@ -24,6 +24,7 @@ class _TabBoxScreenState extends State<TabBoxScreen> {
         color: AppColors.black,
         buttonBackgroundColor: AppColors.black,
         height: 75,
+        index: provider.currentIndex,
         items: const <Widget>[
           Icon(CupertinoIcons.device_laptop, size: 30,color: AppColors.white),
           Icon(Icons.shopping_bag, size: 30,color: AppColors.white),
@@ -31,6 +32,7 @@ class _TabBoxScreenState extends State<TabBoxScreen> {
           Icon(Icons.favorite_border_outlined, size: 30,color: AppColors.white),
           Icon(Icons.person, size: 30,color: AppColors.white),
         ],
+
         onTap: (index) {
           provider.getScreen(index);
         },

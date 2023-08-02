@@ -59,7 +59,7 @@ Future<void> showConfirmMessage({
             Navigator.of(context).pop();
           },
           isDefaultAction: true,
-          child: const Text("ok"),
+          child: const Text("Ok"),
         )
       ],
     ),

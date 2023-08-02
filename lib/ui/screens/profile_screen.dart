@@ -37,36 +37,38 @@ class ProfileScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            SizedBox(height: 30),
-            CircleAvatar(
-              backgroundColor: Colors.black,
-              radius: 70,
-              child: ClipOval(
-                child: user?.photoURL != null?
-                Image.network(
-                  user?.photoURL ?? '',
-                  fit: BoxFit.cover,
-                  width: 130,
-                  height: 130,
-                ):
-                CircleAvatar(
-                  backgroundColor: Colors.black,
-                  radius: 70,
-                  child: Icon(CupertinoIcons.person_alt,size: 100,color: AppColors.white,),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 30),
+              CircleAvatar(
+                backgroundColor: Colors.black,
+                radius: 70,
+                child: ClipOval(
+                  child: user?.photoURL != null?
+                  Image.network(
+                    user?.photoURL ?? '',
+                    fit: BoxFit.cover,
+                    width: 130,
+                    height: 130,
+                  ):
+                  CircleAvatar(
+                    backgroundColor: Colors.black,
+                    radius: 70,
+                    child: Icon(CupertinoIcons.person_alt,size: 100,color: AppColors.white,),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-            _buildUserInfo(Icon(Icons.email), user?.email ?? 'Empty'),
-            const SizedBox(height: 20),
-            _buildUserInfo(Icon(Icons.person), user?.displayName ?? '******'),
-            const SizedBox(height: 20),
-            _buildUserInfo(Icon(Icons.phone), user?.phoneNumber ?? '+998 __ ___ __ __'),
-            SizedBox(height: 100),
-            GlobalButton(color: AppColors.black, text: 'Log Out', onTap: () => showLogoutDialog(context), tcolor: Colors.red)
-          ],
+              const SizedBox(height: 20),
+              _buildUserInfo(Icon(Icons.email), user?.email ?? 'Empty'),
+              const SizedBox(height: 20),
+              _buildUserInfo(Icon(Icons.person), user?.displayName ?? ''),
+              const SizedBox(height: 20),
+              _buildUserInfo(Icon(Icons.phone), user?.phoneNumber ?? '+998 __ ___ __ __'),
+              SizedBox(height: 100),
+              GlobalButton(color: AppColors.black, text: 'Log Out', onTap: () => showLogoutDialog(context), tcolor: Colors.red,)
+            ],
+          ),
         ),
       ),
     );
@@ -75,7 +77,6 @@ class ProfileScreen extends StatelessWidget {
   Widget _buildUserInfo(Icon icon, String value) {
     return Center(
       child: Container(
-
         padding: EdgeInsets.all(15),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),
           color: AppColors.white,
@@ -94,7 +95,8 @@ class ProfileScreen extends StatelessWidget {
             Text(
               ' $value',
               style: const TextStyle(
-                fontSize: 20,
+                overflow: TextOverflow.ellipsis,
+                fontSize: 15,
                 color: AppColors.black,
               ),
             ),

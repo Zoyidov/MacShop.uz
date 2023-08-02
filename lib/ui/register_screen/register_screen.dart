@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:login_screen_homework/ui/tab_box/tab_box.dart';
 import 'package:login_screen_homework/utils/colors.dart';
 import 'package:provider/provider.dart';
 import '../../providers/auth_provider.dart';
