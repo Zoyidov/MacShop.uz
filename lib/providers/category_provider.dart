@@ -20,7 +20,7 @@ class CategoryProvider with ChangeNotifier {
     String name = categoryNameController.text;
     String categoryDesc = categoryDescController.text;
 
-    if (name.isNotEmpty && categoryDesc.isNotEmpty && categoryUrl.isNotEmpty) {
+    if (name.isNotEmpty &&  categoryUrl.isNotEmpty) {
       CategoryModel categoryModel = CategoryModel(
         categoryId: "",
         categoryName: name,
