@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import '../data/firebase/category_service.dart';
 import '../data/models/category/category_model.dart';
 import '../data/models/universal_data.dart';
+import '../data/upload_service.dart';
 import '../utils/ui_utils/loading_dialog.dart';
-
 
 class CategoryProvider with ChangeNotifier {
   CategoryProvider({required this.categoryService});
@@ -13,20 +14,18 @@ class CategoryProvider with ChangeNotifier {
 
   TextEditingController categoryNameController = TextEditingController();
   TextEditingController categoryDescController = TextEditingController();
+  String categoryUrl = "";
 
-  Future<void> addCategory({
-    required BuildContext context,
-    required String imageUrl,
-  }) async {
+  Future<void> addCategory({required BuildContext context}) async {
     String name = categoryNameController.text;
     String categoryDesc = categoryDescController.text;
 
-    if (name.isNotEmpty && categoryDesc.isNotEmpty) {
+    if (name.isNotEmpty && categoryDesc.isNotEmpty && categoryUrl.isNotEmpty) {
       CategoryModel categoryModel = CategoryModel(
         categoryId: "",
         categoryName: name,
         description: categoryDesc,
-        imageUrl: imageUrl,
+        imageUrl: categoryUrl,
         createdAt: DateTime.now().toString(),
       );
       showLoading(context: context);
@@ -53,13 +52,14 @@ class CategoryProvider with ChangeNotifier {
 
   Future<void> updateCategory({
     required BuildContext context,
-    required String imagePath,
     required CategoryModel currentCategory,
   }) async {
     String name = categoryNameController.text;
     String categoryDesc = categoryDescController.text;
 
-    if (name.isNotEmpty && categoryDesc.isNotEmpty) {
+    if (categoryUrl.isEmpty) categoryUrl = currentCategory.imageUrl;
+
+    if (name.isNotEmpty && categoryDesc.isNotEmpty && categoryUrl.isNotEmpty) {
       showLoading(context: context);
       UniversalData universalData = await categoryService.updateCategory(
           categoryModel: CategoryModel(
@@ -67,7 +67,7 @@ class CategoryProvider with ChangeNotifier {
         createdAt: currentCategory.createdAt,
         categoryName: categoryNameController.text,
         description: categoryDescController.text,
-        imageUrl: imagePath,
+        imageUrl: categoryUrl,
       ));
       if (context.mounted) {
         hideLoading(dialogContext: context);
@@ -107,6 +107,25 @@ class CategoryProvider with ChangeNotifier {
     }
   }
 
+  Future<void> uploadCategoryImage(
+    BuildContext context,
+    XFile xFile,
+  ) async {
+    showLoading(context: context);
+    UniversalData data = await FileUploader.imageUploader(xFile);
+    if (context.mounted) {
+      hideLoading(dialogContext: context);
+    }
+    if (data.error.isEmpty) {
+      categoryUrl = data.data as String;
+      notifyListeners();
+    } else {
+      if (context.mounted) {
+        showMessage(context, data.error);
+      }
+    }
+  }
+
   Stream<List<CategoryModel>> getCategories() =>
       FirebaseFirestore.instance.collection("categories").snapshots().map(
             (event1) => event1.docs
@@ -130,5 +149,6 @@ class CategoryProvider with ChangeNotifier {
   clearTexts() {
     categoryDescController.clear();
     categoryNameController.clear();
+    categoryUrl = "";
   }
 }

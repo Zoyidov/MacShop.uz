@@ -3,7 +3,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import '../models/universal_data.dart';
 
-
 class AuthService {
   Future<UniversalData> signUpUser({
     required String email,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../colors.dart';
+import '../colors/app_colors.dart';
 
 class CustomCircularProgressIndicator extends StatelessWidget {
   final double? strokeWidth;
@@ -15,7 +15,7 @@ class CustomCircularProgressIndicator extends StatelessWidget {
     if (strokeWidth == 4.0 || strokeWidth == null) {
       return CircularProgressIndicator(
         strokeWidth: 2,
-        valueColor: AlwaysStoppedAnimation<Color>(AppColors.blue),
+        valueColor: AlwaysStoppedAnimation<Color>(AppColors.c_3669C9),
       );
     } else {
       return CircularProgressIndicator(

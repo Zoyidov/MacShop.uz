@@ -1,3 +1,3 @@
 const String adminEmail = "admin@gmail.com";
 
-const defaultImageConstant = "Add Image";
+const defaultImageConstant = "Select Image";

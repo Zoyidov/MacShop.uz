@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:login_screen_homework/ui/login_screen/login_screen.dart';
 import 'package:provider/provider.dart';
 import '../../../providers/auth_provider.dart';
 
@@ -18,7 +17,7 @@ void showLogoutDialog(BuildContext context) {
           TextButton(
             child: const Text('Log out', style: TextStyle(color: Colors.red)),
             onPressed: () {
-              context.read<AuthProvider>().logOut(context);
+              context.read<AuthProvider>().logOutUser(context);
               Navigator.of(context).pop();
             },
           ),

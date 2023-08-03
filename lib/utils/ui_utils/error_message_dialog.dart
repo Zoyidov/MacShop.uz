@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../colors.dart';
+import '../colors/app_colors.dart';
 
 void showErrorMessage({
   required String message,
@@ -21,7 +21,7 @@ void showErrorMessage({
         child: Text(
           message,
           style:
-              TextStyle(fontWeight: FontWeight.w500, color: AppColors.nos),
+              TextStyle(fontWeight: FontWeight.w500, color: AppColors.c_273032),
         ),
       ),
       actions: [
@@ -50,7 +50,7 @@ Future<void> showConfirmMessage({
         child: Text(
           message,
           style:
-              TextStyle(fontWeight: FontWeight.w500, color: AppColors.nos),
+              TextStyle(fontWeight: FontWeight.w500, color: AppColors.c_273032),
         ),
       ),
       actions: [
@@ -59,7 +59,7 @@ Future<void> showConfirmMessage({
             Navigator.of(context).pop();
           },
           isDefaultAction: true,
-          child: const Text("Ok"),
+          child: const Text("ok"),
         )
       ],
     ),
